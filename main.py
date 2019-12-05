@@ -11,66 +11,11 @@ users = Records('users')
 tickets = Records('tickets')
 organizations = Records('organizations')
 entities = ['users', 'tickets', 'organizations']
-data_mapper = {
-    'users': [
-        {
-            'subject': 'assigned_ticket_subjects',
-            'entity': 'tickets',
-            'prop': 'assignee_id',
-            'query_key': '_id'
-        },
-        {
-            'subject': 'submitted_ticket_subjects',
-            'entity': 'tickets',
-            'prop': 'submitter_id',
-            'query_key': '_id'
-        },
-       {
-            'subject': 'organization_name',
-            'entity': 'organizations',
-            'prop': '_id',
-            'query_key': 'organization_id'
-        },
-    ],
-    'tickets': [
-        {
-            'subject': 'assignee_name',
-            'entity': 'users',
-            'prop': '_id',
-            'query_key': 'assignee_id'
-        },
-        {
-            'subject': 'submitter_name',
-            'entity': 'users',
-            'prop': '_id',
-            'query_key': 'submitter_id'
-        },
-        {
-            'subject': 'organization_name',
-            'entity': 'organizations',
-            'prop': '_id',
-            'query_key': 'organization_id'
-        },
-    ],
-    'organizations': [
-        {
-            'subject': 'ticket_subjects',
-            'entity': 'tickets',
-            'prop': 'organization_id',
-            'query_key': '_id',
-        },
-        {
-            'subject': 'user_names',
-            'entity': 'users',
-            'prop': 'organization_id',
-            'query_key': '_id'
-        },
-
-    ],
-}
+data_mapper = utils.read_file('data/relation_mapper.json')
 
 
 def main():
+
     os.system('cls||clear')
 
     broadcaster.display_title()

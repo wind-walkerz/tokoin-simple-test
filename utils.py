@@ -7,6 +7,11 @@ def read_file(path: str):
         return json.load(json_file)
 
 
+def write_file(path, content):
+    with open(path, 'w') as outfile:
+        json.dump(content, outfile)
+
+
 def capitalize(value: str) -> str:
     return value[0].upper() + value[1:]
 

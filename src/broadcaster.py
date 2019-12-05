@@ -22,13 +22,6 @@ class Broadcaster:
             print(i)
 
     def display_search_result(self, result):
-        # full_result = list(
-        #     map(
-        #         lambda x: get_related_data(entity_name, x),
-        #         result
-        #     ))
-        #
         print(json.dumps(result, indent=4))
-        #
-        with open('result.json', 'w') as outfile:
-            json.dump(result, outfile)
+
+        utils.write_file('result.json', result)
